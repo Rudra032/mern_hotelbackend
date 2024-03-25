@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: 'dotenv' })
 import express from "express";
 import { db } from "./db.js";
 import roomsRoute from "./routes/roomsRouter.js";
@@ -8,8 +7,9 @@ import bookingsRouter from "./routes/bookingsRouter.js";
 import cors from 'cors'
 // import { config as dotenvConfig } from 'dotenv';
 
-app.use(cors());
 const app = express();
+app.use(cors({origin:"https://mernhotel.netlify.app"}));
+dotenv.config({ path: 'dotenv' })
 app.use(express.json());
 const port = process.env.PORT || 5000;
 // console.log(process.env.PORT);
